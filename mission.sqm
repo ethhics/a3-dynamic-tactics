@@ -1,0 +1,139 @@
+version=52;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=3;
+	};
+	class Camera
+	{
+		pos[]={3254.2581,88.839798,2019.1675};
+		dir[]={0.96497327,-0.17364821,-0.19665459};
+		up[]={0.17015086,0.98480779,-0.034675516};
+		aside[]={-0.1996883,3.7252903e-009,-0.97985959};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Characters_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=1;
+		class Item0
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+	};
+};
+randomSeed=5064965;
+class ScenarioData
+{
+	author="Zarmind";
+};
+class Mission
+{
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=2;
+		class Item0
+		{
+			dataType="Trigger";
+			position[]={48.278999,-0.00025939941,8143.8481};
+			class Attributes
+			{
+				name="DYNTAC_AO";
+				sizeA=0;
+				sizeB=0;
+			};
+			id=0;
+			type="EmptyDetector";
+			atlOffset=117.215;
+		};
+		class Item1
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={38.134998,-0.25998235,8150.083};
+					};
+					side="West";
+					flags=3;
+					class Attributes
+					{
+						init="nul = [] execVM ""generate.sqf"";";
+						name="DYNTAC_PLAYER";
+						isPlayer=1;
+					};
+					id=2;
+					type="B_Soldier_F";
+					atlOffset=116.51401;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.05;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1;
+			atlOffset=116.51401;
+		};
+	};
+};
