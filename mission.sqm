@@ -8,30 +8,42 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3;
+		nextID=16;
+	};
+	class MarkerIDProvider
+	{
+		nextID=2;
 	};
 	class Camera
 	{
-		pos[]={3254.2581,88.839798,2019.1675};
-		dir[]={0.96497327,-0.17364821,-0.19665459};
-		up[]={0.17015086,0.98480779,-0.034675516};
-		aside[]={-0.1996883,3.7252903e-009,-0.97985959};
+		pos[]={3265.1533,137.03656,4452.2861};
+		dir[]={-0.98692477,-0.029961949,-0.15871856};
+		up[]={-0.029601689,0.99954671,-0.0047610458};
+		aside[]={-0.15879214,2.4949259e-008,0.98737943};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Characters_F"
+	"A3_Characters_F",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
@@ -64,14 +76,14 @@ class Mission
 	};
 	class Entities
 	{
-		items=2;
+		items=6;
 		class Item0
 		{
 			dataType="Trigger";
 			position[]={48.278999,-0.00025939941,8143.8481};
 			class Attributes
 			{
-				name="DYNTAC_AO";
+				name="DYNTAC_AO_TRIGGER";
 				sizeA=0;
 				sizeB=0;
 			};
@@ -97,7 +109,7 @@ class Mission
 					flags=3;
 					class Attributes
 					{
-						init="nul = [] execVM ""generate.sqf"";";
+						init="nul = [] execVM ""flow.sqf"";";
 						name="DYNTAC_PLAYER";
 						isPlayer=1;
 					};
@@ -134,6 +146,50 @@ class Mission
 			};
 			id=1;
 			atlOffset=116.51401;
+		};
+		class Item2
+		{
+			dataType="Marker";
+			position[]={50,6996.1465,8150};
+			name="DYNTAC_AO_MARKER";
+			markerType="ELLIPSE";
+			type="ellipse";
+			fillName="Border";
+			a=50;
+			b=50;
+			drawBorder=1;
+			id=5;
+			atlOffset=7113.1763;
+		};
+		class Item3
+		{
+			dataType="Marker";
+			position[]={53.646999,4.3787978e+012,8125.27};
+			name="DYNTAC_B_HQ";
+			type="loc_Bunker";
+			colorName="ColorWEST";
+			id=8;
+			atlOffset=4.3787978e+012;
+		};
+		class Item4
+		{
+			dataType="Marker";
+			position[]={63.560001,2991.0576,8131.9238};
+			name="DYNTAC_I_HQ";
+			type="loc_Bunker";
+			colorName="ColorGUER";
+			id=9;
+			atlOffset=3109.719;
+		};
+		class Item5
+		{
+			dataType="Marker";
+			position[]={71.978996,4.3787978e+012,8138.9849};
+			name="DYNTAC_O_HQ";
+			type="loc_Bunker";
+			colorName="ColorEAST";
+			id=10;
+			atlOffset=4.3787978e+012;
 		};
 	};
 };
