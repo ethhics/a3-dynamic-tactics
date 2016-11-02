@@ -41,7 +41,7 @@ params ["_b_num", "_i_num", "_o_num",
             case 2: // Encounter = move waypoint towards opposite side of circle
                 {
                     _vec = (getMarkerPos "DYNTAC_AO_MARKER") vectorDiff (getMarkerPos "DYNTAC_I_HQ");
-                    _vec = _vec vectorMultiply (vectorMagnitude _vec * 2);
+                    _vec = _vec vectorMultiply 2;
                     _pos = _vec vectorAdd (getMarkerPos "DYNTAC_I_HQ");
                     _wp = _x addWaypoint [_pos, 200];
                     _wp setWaypointType "MOVE";
@@ -63,7 +63,7 @@ params ["_b_num", "_i_num", "_o_num",
             case 2: // Encounter = move waypoint towards opposite side of circle
                 {
                     _vec = (getMarkerPos "DYNTAC_AO_MARKER") vectorDiff (getMarkerPos "DYNTAC_O_HQ");
-                    _vec = _vec vectorMultiply (vectorMagnitude _vec * 2);
+                    _vec = _vec vectorMultiply 2;
                     _pos = _vec vectorAdd (getMarkerPos "DYNTAC_O_HQ");
                     _wp = _x addWaypoint [_pos, 200];
                     _wp setWaypointType "MOVE";

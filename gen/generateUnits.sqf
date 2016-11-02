@@ -10,8 +10,8 @@ while {_b_num > 0} do { // Generate all BLUFOR units
               _base_config/"SpecOps", _base_config/"Support"],
             _b_comp] call BIS_fnc_selectRandomWeighted;
     private _composition = selectRandom ("true" configClasses _type);
-    // Spawn up to 100m away
-    private _dist = random 100;
+    // Spawn somewhere nearby the HQ
+    private _dist = random 200;
     private _angle = random 360;
     private _pos_hq = getMarkerPos "DYNTAC_B_HQ";
     private _pos = [(_pos_hq select 0) + _dist*cos(_angle),
@@ -29,7 +29,7 @@ while {_i_num > 0} do { // Generate all INDFOR units
             _i_comp] call BIS_fnc_selectRandomWeighted;
     private _composition = selectRandom ("true" configClasses _type);
 
-    private _dist = random 100;
+    private _dist = random 200;
     private _angle = random 360;
     private _pos_hq = getMarkerPos "DYNTAC_I_HQ";
     private _pos = [(_pos_hq select 0) + _dist*cos(_angle),
@@ -47,7 +47,7 @@ while {_o_num > 0} do { // Generate all OPFOR units
             _o_comp] call BIS_fnc_selectRandomWeighted;
     private _composition = selectRandom ("true" configClasses _type);
 
-    private _dist = random 100;
+    private _dist = random 200;
     private _angle = random 360;
     private _pos_hq = getMarkerPos "DYNTAC_O_HQ";
     private _pos = [(_pos_hq select 0) + _dist*cos(_angle),

@@ -58,9 +58,9 @@ while {not _done} do {
     };
     
     // If HQs are too close together, or are in water, regenerate.
-    if (getMarkerPos "DYNTAC_B_HQ" distance getMarkerPos "DYNTAC_I_HQ" < 500 ||
-        getMarkerPos "DYNTAC_I_HQ" distance getMarkerPos "DYNTAC_O_HQ" < 500 ||
-        getMarkerPos "DYNTAC_O_HQ" distance getMarkerPos "DYNTAC_B_HQ" < 500 ||
+    if (getMarkerPos "DYNTAC_B_HQ" distance getMarkerPos "DYNTAC_I_HQ" < (_map_size / 2) ||
+        getMarkerPos "DYNTAC_I_HQ" distance getMarkerPos "DYNTAC_O_HQ" < (_map_size / 2) ||
+        getMarkerPos "DYNTAC_O_HQ" distance getMarkerPos "DYNTAC_B_HQ" < (_map_size / 2) ||
         getTerrainHeightASL getMarkerPos "DYNTAC_B_HQ" < 0 ||
         getTerrainHeightASL getMarkerPos "DYNTAC_I_HQ" < 0 ||
         getTerrainHeightASL getMarkerPos "DYNTAC_O_HQ" < 0) then {
