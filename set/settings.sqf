@@ -65,6 +65,7 @@ _bi_affil = cbChecked _bi_affil_obj;
 _oi_affil = cbChecked _oi_affil_obj;
 
 _p_class = lbCurSel _p_class_obj;
+if (_p_class == 6) then { _p_class = selectRandom [0, 1, 2, 3, 4, 5]; };
 
 _p_command = cbChecked _p_command_obj;
 
@@ -158,4 +159,4 @@ _unit_o_comp = [sliderPosition _unit_o0_obj, sliderPosition _unit_o1_obj,
 // Return our values needed for generation
 [_map_size, _unit_b_num, _unit_i_num, _unit_o_num,
 _unit_b_comp, _unit_i_comp, _unit_o_comp,
-_strat_b, _strat_i, _strat_o];
+_strat_b, _strat_i, _strat_o, _p_class, _p_command];

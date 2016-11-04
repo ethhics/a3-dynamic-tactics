@@ -3,7 +3,7 @@ _actual_map_size = 8192; // Size of Stratis map
 // Get our settings passed from settings page.
 params ["_map_size", "_unit_b_num", "_unit_i_num", "_unit_o_num",
            "_unit_b_comp", "_unit_i_comp", "_unit_o_comp",
-           "_strat_b", "_strat_i", "_strat_o"];
+           "_strat_b", "_strat_i", "_strat_o", "_player_class", "_is_commander"];
 
 // Generation loop
 private _done = false;
@@ -71,11 +71,10 @@ while {not _done} do {
 };
 
 // Now, put down units.
-nul = [_unit_b_num, _unit_i_num, _unit_o_num, _unit_b_comp, _unit_i_comp, _unit_o_comp,
- _strat_b, _strat_i, _strat_o] call compile preprocessFileLineNumbers "gen\generateUnits.sqf";
- 
-DYNTAC_PLAYER setPos getMarkerPos "DYNTAC_B_HQ"; // For testing, move the player
-// TODO: Find out how to recenter the map on the new position
+nul = [_unit_b_num, _unit_i_num, _unit_o_num,
+       _unit_b_comp, _unit_i_comp, _unit_o_comp,
+       _strat_b, _strat_i, _strat_o,
+       _player_class, _is_commander] call compile preprocessFileLineNumbers "gen\generateUnits.sqf";
 
 // Return the params needed for the adjust section
 [_unit_b_num, _unit_i_num, _unit_o_num, _strat_b, _strat_i, _strat_o];
