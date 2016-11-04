@@ -367,7 +367,7 @@ class BaseTextSubsection: BaseText
 };
 class BaseTextLabel: BaseText
 {
-    style = ST_LEFT;
+    style = ST_CENTER;
     font = GUI_FONT_THIN;
 };
 
