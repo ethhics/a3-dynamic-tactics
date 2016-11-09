@@ -1,7 +1,7 @@
 hint "Started! Getting settings...";
 disableSerialization;
 _params = call compile preprocessFileLineNumbers "set\settings.sqf";
-//systemChat str(_params);
+systemChat str(_params);
 sleep 1;
 
 hint "Got settings. Generating mission...";

@@ -3,8 +3,11 @@ _display = findDisplay 42;
 
 // Get references to our objects
 _map_size_obj = _display displayCtrl 1010;
+_map_size_r = _display displayCtrl 1012;
 _overcast_obj = _display displayCtrl 1020;
+_overcast_r = _display displayCtrl 1022;
 _daytime_obj = _display displayCtrl 1030;
+_daytime_r = _display displayCtrl 1032;
 _b_strat_obj = _display displayCtrl 2101;
 _i_strat_obj = _display displayCtrl 2201;
 _o_strat_obj = _display displayCtrl 2301;
@@ -48,9 +51,24 @@ _display closeDisplay 1;
 
 // -----------------------------------------------------------------------------
 
-_map_size = sliderPosition _map_size_obj;
-_overcast = sliderPosition _overcast_obj;
-_daytime = sliderPosition _daytime_obj;
+_map_size = 0;
+if (cbChecked _map_size_r) then { // Random map size selected
+    _map_size = 500 + random 2000;
+} else { // Get selected value
+    _map_size = sliderPosition _map_size_obj;
+};
+_overcast = 0;
+if (cbChecked _overcast_r) then {
+    _overcast = random 1;
+} else {
+    _overcast = sliderPosition _overcast_obj;
+};
+_daytime = 0;
+if (cbChecked _daytime_r) then {
+    _daytime = random 24;
+} else {
+    _daytime = sliderPosition _daytime_obj;
+};
 
 _strat_b = lbCurSel _b_strat_obj; // Thank goodness value==index for these!
 _strat_i = lbCurSel _i_strat_obj;
@@ -98,6 +116,9 @@ _unit_o2_obj = _display displayCtrl 2330;
 _unit_o3_obj = _display displayCtrl 2340;
 _unit_o4_obj = _display displayCtrl 2350;
 _unit_o5_obj = _display displayCtrl 2360;
+_unit_b_r = _display displayCtrl 2101;
+_unit_i_r = _display displayCtrl 2201;
+_unit_o_r = _display displayCtrl 2301;
 _generate_obj = _display displayCtrl 4000;
 
 _balanced_setup = [.5, 80, 2.5, 7, 5, 5];
@@ -142,19 +163,61 @@ if (_unit_i_num == 21) then { _unit_i_num = selectRandom _one_to_twenty; };
 if (_unit_o_num == 21) then { _unit_o_num = selectRandom _one_to_twenty; };
 
 // [Armored, Infantry, Mechanized, Motorized, SpecOps, Support]
-/*
 _unit_b_comp = [.005, .80, .025, .07, .05, .05];
 _unit_i_comp = [.005, .75, .025, .08, .05, .09];
-_unit_o_comp = [.005, .75, .025, .05, .09, .08];*/
-_unit_b_comp = [sliderPosition _unit_b0_obj, sliderPosition _unit_b1_obj,
-                sliderPosition _unit_b2_obj, sliderPosition _unit_b3_obj,
-                sliderPosition _unit_b4_obj, sliderPosition _unit_b5_obj];
-_unit_i_comp = [sliderPosition _unit_i0_obj, sliderPosition _unit_i1_obj,
-                sliderPosition _unit_i2_obj, sliderPosition _unit_i3_obj,
-                sliderPosition _unit_i4_obj, sliderPosition _unit_i5_obj];
-_unit_o_comp = [sliderPosition _unit_o0_obj, sliderPosition _unit_o1_obj,
-                sliderPosition _unit_o2_obj, sliderPosition _unit_o3_obj,
-                sliderPosition _unit_o4_obj, sliderPosition _unit_o5_obj];
+_unit_o_comp = [.005, .75, .025, .05, .09, .08];
+
+if (cbChecked _unit_b_r) then { // They want a random composition
+    _inf = 0.6 + random 0.4; // 60-100% infantry
+    _mot = 1 - _inf;
+    _sf = random 0.1; // Up to 10% specops
+    _inf = _inf - _sf;
+    _sup = random 0.15; // Up to 15% support
+    _inf = _inf - _sup;
+    _mec = random 0.1; // Up to 10% mechanized
+    _mot = _mot - _mec;
+    _arm = random 0.05; // Up to 5% armored
+    _mec = _mec - _arm;
+    _unit_b_comp = [_arm, _inf, _mec, _mot, _sf, _sup];
+} else {
+    _unit_b_comp = [sliderPosition _unit_b0_obj, sliderPosition _unit_b1_obj,
+                    sliderPosition _unit_b2_obj, sliderPosition _unit_b3_obj,
+                    sliderPosition _unit_b4_obj, sliderPosition _unit_b5_obj];
+};
+if (cbChecked _unit_i_r) then { // They want a random composition
+    _inf = 0.6 + random 0.4; // 60-100% infantry
+    _mot = 1 - _inf;
+    _sf = random 0.1; // Up to 10% specops
+    _inf = _inf - _sf;
+    _sup = random 0.15; // Up to 15% support
+    _inf = _inf - _sup;
+    _mec = random 0.1; // Up to 10% mechanized
+    _mot = _mot - _mec;
+    _arm = random 0.05; // Up to 5% armored
+    _mec = _mec - _arm;
+    _unit_b_comp = [_arm, _inf, _mec, _mot, _sf, _sup];
+} else {
+    _unit_i_comp = [sliderPosition _unit_i0_obj, sliderPosition _unit_i1_obj,
+                    sliderPosition _unit_i2_obj, sliderPosition _unit_i3_obj,
+                    sliderPosition _unit_i4_obj, sliderPosition _unit_i5_obj];
+};
+if (cbChecked _unit_o_r) then { // They want a random composition
+    _inf = 0.6 + random 0.4; // 60-100% infantry
+    _mot = 1 - _inf;
+    _sf = random 0.1; // Up to 10% specops
+    _inf = _inf - _sf;
+    _sup = random 0.15; // Up to 15% support
+    _inf = _inf - _sup;
+    _mec = random 0.1; // Up to 10% mechanized
+    _mot = _mot - _mec;
+    _arm = random 0.05; // Up to 5% armored
+    _mec = _mec - _arm;
+    _unit_b_comp = [_arm, _inf, _mec, _mot, _sf, _sup];
+} else {
+    _unit_o_comp = [sliderPosition _unit_o0_obj, sliderPosition _unit_o1_obj,
+                    sliderPosition _unit_o2_obj, sliderPosition _unit_o3_obj,
+                    sliderPosition _unit_o4_obj, sliderPosition _unit_o5_obj];
+};
 
 // Return our values needed for generation
 [_map_size, _unit_b_num, _unit_i_num, _unit_o_num,

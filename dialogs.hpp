@@ -39,6 +39,26 @@ class Intel_dialog
             w = 6 * GUI_GRID_CENTER_W;
             h = 1 * GUI_GRID_CENTER_H;
         }
+        class Checkbox_AO: BaseCheckbox
+        {
+            idc = 1012;
+            tooltip = "Random AO Size?"; //--- ToDo: Localize;
+            x = 36 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 3 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "ctrlEnable [1010, not cbChecked (_this select 0)];";
+        };
+        class Text_AOCHECKBOX: BaseTextLabel
+        {
+            idc = 1013;
+            style = ST_CENTER;
+            text = "RANDOM";
+            x = 34 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 2 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 6 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
         class Slider_OVERCAST: BaseSlider
         {
             idc = 1020;
@@ -59,6 +79,26 @@ class Intel_dialog
             w = 6 * GUI_GRID_CENTER_W;
             h = 1 * GUI_GRID_CENTER_H;
         }
+        class Checkbox_OVERCAST: BaseCheckbox
+        {
+            idc = 1022;
+            tooltip = "Random Overcast?"; //--- ToDo: Localize;
+            x = 36 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 6 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "ctrlEnable [1020, not cbChecked (_this select 0)];";
+        };
+        class Text_OVERCASTCHECKBOX: BaseTextLabel
+        {
+            idc = 1023;
+            style = ST_CENTER;
+            text = "RANDOM";
+            x = 34 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 5 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 6 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
         class Slider_DAYTIME: BaseSlider
         {
             idc = 1030;
@@ -79,6 +119,26 @@ class Intel_dialog
             w = 6 * GUI_GRID_CENTER_W;
             h = 1 * GUI_GRID_CENTER_H;
         }
+        class Checkbox_DAYTIME: BaseCheckbox
+        {
+            idc = 1032;
+            tooltip = "Random Time of Day?"; //--- ToDo: Localize;
+            x = 36 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 9 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "ctrlEnable [1030, not cbChecked (_this select 0)];";
+        };
+        class Text_DAYTIMECHECKBOX: BaseTextLabel
+        {
+            idc = 1033;
+            style = ST_CENTER;
+            text = "RANDOM";
+            x = 34 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 8 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 6 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
         
         class Section_SITUATION: BaseTextSection
         {
@@ -751,6 +811,88 @@ class Units_dialog
             text = "Support"; //--- ToDo: Localize;
             x = 26 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
             y = 24 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 4 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
+        
+        class Checkbox_C_BLUFOR: BaseCheckbox
+        {
+            idc = 2101;
+            tooltip = "Random BLUFOR Composition?"; //--- ToDo: Localize;
+            x = 4 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "\
+            ctrlEnable [2110, not cbChecked (_this select 0)];\
+            ctrlEnable [2120, not cbChecked (_this select 0)];\
+            ctrlEnable [2130, not cbChecked (_this select 0)];\
+            ctrlEnable [2140, not cbChecked (_this select 0)];\
+            ctrlEnable [2150, not cbChecked (_this select 0)];\
+            ctrlEnable [2160, not cbChecked (_this select 0)];\
+            ";
+        };
+        class Text_C_BLUFORCHECKBOX: BaseTextLabel
+        {
+            idc = 2102;
+            style = ST_RIGHT;
+            text = "RANDOM";
+            x = 0 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 4 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
+        class Checkbox_C_INDFOR: BaseCheckbox
+        {
+            idc = 2201;
+            tooltip = "Random INDFOR Composition?"; //--- ToDo: Localize;
+            x = 20 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "\
+            ctrlEnable [2210, not cbChecked (_this select 0)];\
+            ctrlEnable [2220, not cbChecked (_this select 0)];\
+            ctrlEnable [2230, not cbChecked (_this select 0)];\
+            ctrlEnable [2240, not cbChecked (_this select 0)];\
+            ctrlEnable [2250, not cbChecked (_this select 0)];\
+            ctrlEnable [2260, not cbChecked (_this select 0)];\
+            ";
+        };
+        class Text_C_INDFORCHECKBOX: BaseTextLabel
+        {
+            idc = 2202;
+            style = ST_RIGHT;
+            text = "RANDOM";
+            x = 16 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 4 * GUI_GRID_CENTER_W;
+            h = 1 * GUI_GRID_CENTER_H;
+        };
+        class Checkbox_C_OPFOR: BaseCheckbox
+        {
+            idc = 2301;
+            tooltip = "Random OPFOR Composition?"; //--- ToDo: Localize;
+            x = 36 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
+            w = 2 * GUI_GRID_CENTER_W;
+            h = 2 * GUI_GRID_CENTER_H;
+            onMouseButtonClick = "\
+            ctrlEnable [2310, not cbChecked (_this select 0)];\
+            ctrlEnable [2320, not cbChecked (_this select 0)];\
+            ctrlEnable [2330, not cbChecked (_this select 0)];\
+            ctrlEnable [2340, not cbChecked (_this select 0)];\
+            ctrlEnable [2350, not cbChecked (_this select 0)];\
+            ctrlEnable [2360, not cbChecked (_this select 0)];\
+            ";
+        };
+        class Text_C_OPFORCHECKBOX: BaseTextLabel
+        {
+            idc = 2302;
+            style = ST_RIGHT;
+            text = "RANDOM";
+            x = 32 * GUI_GRID_CENTER_W + GUI_GRID_CENTER_X;
+            y = 25 * GUI_GRID_CENTER_H + GUI_GRID_CENTER_Y;
             w = 4 * GUI_GRID_CENTER_W;
             h = 1 * GUI_GRID_CENTER_H;
         };
