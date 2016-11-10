@@ -10,6 +10,6 @@ The goal is to have a random mission generator, designed to create a conflict in
 ## Anything else?
 I probably won't finish this. I'll declare the project dead if I decide it is, and until then consider it under development, no matter how unlikely that may seem.
 
-[![Arma Public License Share Alike logo](http://www.bistudio.com/license-icons/small/APL-SA.png)](http://www.bistudio.com/licenses/arma-public-license)
+[![Arma Public License Share Alike logo](http://www.bistudio.com/license-icons/small/APL-SA.png)](https://www.bistudio.com/community/licenses/arma-public-license-share-alike)
 
 This work is licensed under a Arma Public License Share Alike.
